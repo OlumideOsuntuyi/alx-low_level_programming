@@ -1,33 +1,39 @@
 #include "main.h"
-#include <stdlib.h>
-
 
 /**
-  * _calloc - Performs the required task
-  * @nmemb: number of members
-  * @size: size
-  *
-  * Return: ...
-  */
+ * _memset - copy char
+ * @s: string
+ * @b: input
+ * @n: bytes
+ * Return: string
+ */
+char *_memset(char *s, char b, unsigned int n)
+{
+	unsigned int i;
+
+	for (i = 0; i < n; i++)
+	{
+		s[i] = b;
+	}
+	return (s);
+}
+
+/**
+ * _calloc - allocates memory for an array using malloc
+ * @nmemb: n elements
+ * @size: bytes
+ * Return: pointer
+ */
 void *_calloc(unsigned int nmemb, unsigned int size)
 {
-	int i = 0, l = 0;
-	char *p;
+	void *p;
 
 	if (nmemb == 0 || size == 0)
-	return (NULL);
-
-	l = nmemb * size;
-	p = malloc(l);
+		return (NULL);
+	p = malloc(nmemb * size);
 
 	if (p == NULL)
-	return (NULL);
-
-	while (i < l)
-	{
-		p[i] = 0;
-		i++;
-	}
-
+		return (NULL);
+	_memset(p, 0, (nmemb * size));
 	return (p);
 }
