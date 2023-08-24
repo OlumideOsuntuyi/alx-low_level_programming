@@ -1,19 +1,17 @@
 #include "main.h"
-
 /**
- * _isalpha - Checks if a character is an alphabetic character.
- * @c: The character to be checked (type int).
- *
- * Description: This function determines if the given character 'c'
- * is an alphabet character, either lowercase (a-z) or uppercase (A-Z).
- *
- * Return: 1 if 'c' is an alphabet character, 0 otherwise.
+ * _isalpha - Checks for alphabetic character.
+ * @c: The decimal representation of the character to check.
+ * Return: 1 if c is a letter, lowercase or lowercase. 0 otherwise.
  */
 int _isalpha(int c)
 {
-    if ((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z'))
-        return (1);
-    else
-        return (0);
-}
+	int a = 0;
 
+	if ((c > 96 && c < 123) || (c > 64 && c < 91))
+	{
+		a = 1;
+	}
+
+	return (a);
+}

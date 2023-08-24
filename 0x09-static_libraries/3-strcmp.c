@@ -1,24 +1,39 @@
-#include "main.h"
 /**
- * _strcmp - compares two strings
- * @s1: first string.
- * @s2: second string.
- * Return: 0 if s1 and s2 are equals,
- * another number if not.
+ * _strlen - Returns the length of a string.
+ * @s: The string whose the length should be returned.
+ * Return: The length of s.
  */
-
-int _strcmp(char *s1, char *s2)
+int _strlen(char *s)
 {
-	int i = 0, op = 0;
+	int i = 0;
+	char tmp;
 
-	while (op == 0)
-	{
-		if ((*(s1 + i) == '\0') && (*(s2 + i) == '\0'))
-			break;
-		op = *(s1 + i) - *(s2 + i);
+	do {
+		tmp = s[i];
 		i++;
-	}
-
-	return (op);
+	} while (tmp != '\0');
+	return (i - 1);
 }
 
+/**
+ * _strcmp - Compare one string to another.
+ * @s1: The first string and the destination.
+ * @s2: The second string.
+ * Return: -1 if s1 < s2
+ *	  1 if s1 > s2
+ *	  0 if s1 = s2
+ */
+int _strcmp(char *s1, char *s2)
+{
+	int i = 0, m = 0, n = 0, res = 0;
+
+	for (i = 0; s1[i] != '\0'; i++)
+		m += (int)s1[i++];
+	for (i = 0; s2[i] != '\0'; i++)
+		n += (int)s2[i++];
+	if (m > n)
+		res = -15;
+	else if (m < n)
+		res = 15;
+	return (res);
+}
